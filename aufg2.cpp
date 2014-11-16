@@ -17,8 +17,9 @@ int main()
 	try {
 		Datum d5(1, 1, 1582);
 
-		cout << "Datum vor dem Jahr 1583: " << d5.weekday() << endl;
-	} catch(const char *e) {
+		cout << "Datum vor dem Jahr 1583: " << d5.weekday() << endl;	// wird nicht mehr ausgegeben!
+	}
+	catch(const char *e) {
 		cout << "ERROR: '" << e << "'" << endl;
 	}
 }

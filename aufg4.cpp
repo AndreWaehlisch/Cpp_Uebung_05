@@ -2,16 +2,17 @@
 using namespace std;
 
 class Matrix {
+ private:
 
 	double v[3][3];
 
  public:
-	//Erster Konstruktor 
+	//Erster Konstruktor
 	 Matrix() {
 		for (int i = 0; i < 9; i++)
 			v[i / 3][i % 3] = 0.0;
 	}
-	// Zweiter Konstruktor  Matrix(const double a[3][3]) {
+	// Zweiter Konstruktor Matrix(const double a[3][3]) {
 		for (int i = 0; i < 9; i++)
 			v[i / 3][i % 3] = a[i / 3][i % 3];
 	}

@@ -27,7 +27,6 @@ template < class T > T SIGN(T a, T b)
 
 int main()
 {
-
 	int a = 1, b = 2;
 	double c = 1.2, d = 1.3;
 
@@ -52,5 +51,4 @@ int main()
 
 	cout << "SIGN (" << c << ", " << -d << ") = " << SIGN(c, -d) << endl;
 	cout << "SIGN (" << -c << ", " << -d << ") = " << SIGN(-c, -d) << endl;
-
 }

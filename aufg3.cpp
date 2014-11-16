@@ -4,6 +4,8 @@ using namespace std;
 
 class Vektor {
 
+ private:
+
 	double *ar;
 
  public:
@@ -15,7 +17,7 @@ class Vektor {
 		ar = new double[N];
 	} Vektor(const int n, const double input[]) {
 		N = n;
-		ar = new double[n];
+		ar = new double[N];
 
 		for (int i = 0; i < N; i++) {
 			ar[i] = input[i];
@@ -25,7 +27,7 @@ class Vektor {
 	Vektor(const Vektor & v) {
 		N = v.N;
 
-		ar = new double (N);
+		ar = new double[N];
 
 		for (int i = 0; i < N; i++) {
 			ar[i] = *v[i];
@@ -46,7 +48,7 @@ class Vektor {
 
 const Vektor vektorsumme(const Vektor v1, const Vektor v2)
 {
-	Vektor c(v1);
+	Vektor c(v1.N);
 
 	for (int i = 0; i < c.N; i++) {
 		*c[i] = *v1[i] + *v2[i];
@@ -57,11 +59,21 @@ const Vektor vektorsumme(const Vektor v1, const Vektor v2)
 
 int main()
 {
-	const double i[4] = { 1, 2, 3, 4 };
-	const Vektor c1(4, i);
-	const Vektor c2(4, i);
+	const int L = 1047000;	// Ungefähr bei einer Array-Länge von 1048000 beendet das Programm mit der Fehlermeldung "Segmentation fault", was auf eine Zugriffsverletzung hinweist.
 
+	double init[L];
+
+	for (int k = 0; k < L; k++) {
+		init[k] = k;
+	}
+
+	const Vektor c1(L, init);
+	const Vektor c2(L, init);
 	const Vektor c3(vektorsumme(c1, c2));
 
-	cout << *c3[1] << endl;
+	cout << "1. Eintrag von Vektor c1 und c2: " << *c1[1] << endl;
+	cout << "1. Eintrag der Vektorsumme: " << *c3[1] << endl;
+
+	cout << "Letzter Eintrag von Vektor c1 und c2: " << *c1[L - 1] << endl;
+	cout << "Letzter Eintrag der Vektorsumme: " << *c3[L - 1] << endl;
 }
