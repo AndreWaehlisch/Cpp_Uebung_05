@@ -1,75 +1,91 @@
 #include <iostream>
 using namespace std;
 
-class Matrix {
- private:
+class Matrix
+{
+private:
 
-	double v[3][3];
+  double v[3][3];
 
- public:
-	//Erster Konstruktor
-	 Matrix() {
-		for (int i = 0; i < 9; i++)
-			v[i / 3][i % 3] = 0.0;
-	}
-	// Zweiter Konstruktor Matrix(const double a[3][3]) {
-		for (int i = 0; i < 9; i++)
-			v[i / 3][i % 3] = a[i / 3][i % 3];
-	}
+public:
+  //Erster Konstruktor
+    Matrix ()
+  {
+    for (int i = 0; i < 9; i++)
+      v[i / 3][i % 3] = 0.0;
+  }
 
-	const double *operator[] (int i)const {
-		if (i < 3)
-			return v[i];
-		else
-			return NULL;
-	} double *operator[] (int i) {
-		if (i < 3)
-			return v[i];
-		else
-			return NULL;
-	}
+  // Zweiter Konstruktor
+  Matrix (const double a[3][3])
+  {
+    for (int i = 0; i < 9; i++)
+      v[i / 3][i % 3] = a[i / 3][i % 3];
+  }
 
-	friend ostream & operator<<(ostream & out, const Matrix & m) {
-		for (int i = 0; i < 9; i++) {
+  const double *operator[] (int i) const
+  {
+    if (i < 3)
+      return v[i];
+    else
+      return NULL;
+  }
 
-			if (i % 3)
-				out << ',';
-			else if (i != 0)
-				out << '\n';
+  double *operator[] (int i)
+  {
+    if (i < 3)
+      return v[i];
+    else
+      return NULL;
+  }
 
-			out << m[i / 3][i % 3];
-		}
+  friend ostream & operator<< (ostream & out, const Matrix & m)
+  {
+    for (int i = 0; i < 9; i++)
+      {
 
-		return out;
-	}
+	if (i % 3)
+	  out << ',';
+	else if (i != 0)
+	  out << '\n';
+
+	out << m[i / 3][i % 3];
+      }
+
+    return out;
+  }
 
 };
 
-Matrix matAdd(const Matrix & a, const Matrix & b)
+
+Matrix
+matAdd (const Matrix & a, const Matrix & b)
 {
-	Matrix m(a);
+  Matrix m (a);
 
-	for (int i = 0; i < 3; i++)
-		for (int j = 0; j < 3; j++)
-			m[i][j] += b[i][j];
+  for (int i = 0; i < 3; i++)
+    for (int j = 0; j < 3; j++)
+      m[i][j] += b[i][j];
 
-	return m;
+  return m;
 }
 
-int main()
+
+
+int
+main ()
 {
-	double a[3][3] = { {1, 2, 3},
-	{4, 5, 6},
-	{7, 8, 9}
-	};
-	Matrix m(a);
-	Matrix n;
+  double a[3][3] = { {1, 2, 3},
+  {4, 5, 6},
+  {7, 8, 9}
+  };
+  Matrix m (a);
+  Matrix n;
 
-	cout << "m[1][2] = " << m[1][2] << endl;
+  cout << "m[1][2] = " << m[1][2] << endl;
 
-	cout << m << endl;
+  cout << m << endl;
 
-	n = matAdd(m, m);
+  n = matAdd (m, m);
 
-	cout << matAdd(m, m) << endl;
+  cout << matAdd (m, m) << endl;
 }
