@@ -17,7 +17,9 @@ public:
   {
     N = n;
     ar = new double[N];
-  } Vektor (const int n, const double input[])
+  }
+
+  Vektor (const int n, const double input[])
   {
     N = n;
     ar = new double[N];
@@ -50,6 +52,7 @@ public:
   {
     return &ar[i];
   }
+
   double *operator[] (const int i)
   {
     return &ar[i];
