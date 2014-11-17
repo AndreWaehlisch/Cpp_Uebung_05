@@ -1,54 +1,33 @@
 #include <iostream>
 #include <cmath>
+#include "helfer.h"
 using namespace std;
 
-template < class T > T MAX(T a, T b)
+int
+main ()
 {
-	return a > b ? a : b;
-}
+  int a = 1, b = 2;
+  double c = 1.2, d = 1.3;
 
-template < class T > T MIN(T a, T b)
-{
-	return a < b ? a : b;
-}
+  cout << "Max (" << a << ", " << b << ") = " << MAX (a, b) << endl;
+  cout << "Max (" << c << ", " << d << ") = " << MAX (c, d) << '\n' << endl;
 
-template < class T > void SWAP(T & a, T & b)
-{
-	T c;
-	c = a;
-	a = b;
-	b = c;
-}
+  cout << "Min (" << a << ", " << b << ") = " << MIN (a, b) << endl;
+  cout << "Min (" << c << ", " << d << ") = " << MIN (c, d) << '\n' << endl;
 
-template < class T > T SIGN(T a, T b)
-{
-	return a >= 0 ? (b >= 0 ? a : -a) : (b >= 0 ? -a : a);
-}
+  cout << "a = " << a << ", b = " << b << endl;
+  cout << "SWAP ( a, b )" << endl;
+  SWAP (a, b);
+  cout << "a = " << a << ", b = " << b << '\n' << endl;
 
-int main()
-{
-	int a = 1, b = 2;
-	double c = 1.2, d = 1.3;
+  cout << "c = " << c << ", d = " << d << endl;
+  cout << "SWAP ( c, d )" << endl;
+  SWAP (c, d);
+  cout << "c = " << c << ", d = " << d << '\n' << endl;
 
-	cout << "Max (" << a << ", " << b << ") = " << MAX(a, b) << endl;
-	cout << "Max (" << c << ", " << d << ") = " << MAX(c, d) << '\n' << endl;
+  cout << "SIGN (" << a << ", " << b << ") = " << SIGN (a, b) << endl;
+  cout << "SIGN (" << -a << ", " << b << ") = " << SIGN (-a, b) << endl;
 
-	cout << "Min (" << a << ", " << b << ") = " << MIN(a, b) << endl;
-	cout << "Min (" << c << ", " << d << ") = " << MIN(c, d) << '\n' << endl;
-
-	cout << "a = " << a << ", b = " << b << endl;
-	cout << "SWAP ( a, b )" << endl;
-	SWAP(a, b);
-	cout << "a = " << a << ", b = " << b << '\n' << endl;
-
-	cout << "c = " << c << ", d = " << d << endl;
-	cout << "SWAP ( c, d )" << endl;
-	SWAP(c, d);
-	cout << "c = " << c << ", d = " << d << '\n' << endl;
-
-	cout << "SIGN (" << a << ", " << b << ") = " << SIGN(a, b) << endl;
-	cout << "SIGN (" << -a << ", " << b << ") = " << SIGN(-a, b) << endl;
-
-	cout << "SIGN (" << c << ", " << -d << ") = " << SIGN(c, -d) << endl;
-	cout << "SIGN (" << -c << ", " << -d << ") = " << SIGN(-c, -d) << endl;
+  cout << "SIGN (" << c << ", " << -d << ") = " << SIGN (c, -d) << endl;
+  cout << "SIGN (" << -c << ", " << -d << ") = " << SIGN (-c, -d) << endl;
 }
