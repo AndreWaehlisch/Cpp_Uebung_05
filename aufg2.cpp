@@ -14,12 +14,14 @@ int main()
 	cout << "Das Datum 05.06.2007: " << d4 << endl;
 
 	// Die Datum.weekday Funktion ist nur für Wochentage ab dem Jahr 1583 gültig. Wird ein Datum davor angefordert, produziert dies einen Fehler der hier abgefangen wird.
-	try {
+	try
+	{
 		Datum d5(1, 1, 1582);
 
-		cout << "Datum vor dem Jahr 1583: " << d5.weekday() << endl;	// wird nicht mehr ausgegeben!
+		cout << "Datum vor dem Jahr 1583: " << d5.weekday() << endl; // wird nicht mehr ausgegeben!
 	}
-	catch(const char *e) {
+	catch ( const char * e )
+	{
 		cout << "ERROR: '" << e << "'" << endl;
 	}
 }

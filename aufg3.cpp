@@ -2,55 +2,69 @@
 #include <cmath>
 using namespace std;
 
-class Vektor {
+class Vektor
+{
 
- private:
+	private:
 
-	double *ar;
+		double *ar;
 
- public:
+	public:
 
-	int N;
+		int N;
 
-	 Vektor(const int n) {
-		N = n;
-		ar = new double[N];
-	} Vektor(const int n, const double input[]) {
-		N = n;
-		ar = new double[N];
-
-		for (int i = 0; i < N; i++) {
-			ar[i] = input[i];
+		Vektor(const int n)
+		{
+			N = n;
+			ar = new double[N];
 		}
-	}
 
-	Vektor(const Vektor & v) {
-		N = v.N;
+		Vektor(const int n, const double input[])
+		{
+			N = n;
+			ar = new double[N];
 
-		ar = new double[N];
-
-		for (int i = 0; i < N; i++) {
-			ar[i] = *v[i];
+			for ( int i = 0; i < N; i++ )
+			{
+				ar[i] = input[i];
+			}
 		}
-	}
 
-	// Destruktor: Wird in erster Linie benutzt, um Speicher wieder freizugeben.
-	~Vektor() {
-		delete[]ar;
-	}
+		Vektor(const Vektor& v)
+		{
+			N = v.N;
 
-	const double *operator[] (const int i)const {
-		return &ar[i];
-	} double *operator[] (const int i) {
-		return &ar[i];
-	}
+			ar = new double[N];
+
+			for ( int i = 0; i < N; i++ )
+			{
+				ar[i] = *v[i];
+			}
+		}
+
+		// Destruktor: Wird in erster Linie benutzt, um Speicher wieder freizugeben.
+		~Vektor()
+		{
+			delete [] ar;
+		}
+
+		const double* operator[] (const int i) const
+		{
+			return &ar[i];
+		}
+
+		double* operator[] (const int i)
+		{
+			return &ar[i];
+		}
 };
 
 const Vektor vektorsumme(const Vektor v1, const Vektor v2)
 {
 	Vektor c(v1.N);
 
-	for (int i = 0; i < c.N; i++) {
+	for ( int i = 0; i < c.N; i++ )
+	{
 		*c[i] = *v1[i] + *v2[i];
 	}
 
@@ -63,7 +77,8 @@ int main()
 
 	double init[L];
 
-	for (int k = 0; k < L; k++) {
+	for ( int k = 0; k < L; k++ )
+	{
 		init[k] = k;
 	}
 
