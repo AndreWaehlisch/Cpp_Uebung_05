@@ -59,7 +59,7 @@ const Vektor vektorsumme(const Vektor v1, const Vektor v2)
 
 int main()
 {
-	const int L = 1047000;	// Ungefähr bei einer Array-Länge von 1048000 beendet das Programm mit der Fehlermeldung "Segmentation fault", was auf eine Zugriffsverletzung hinweist.
+	const int L = 1000;	// Ungefähr bei einer Array-Länge von 1048000 beendet das Programm mit der Fehlermeldung "Segmentation fault", was auf eine Zugriffsverletzung hinweist, da zu viel Speicher angefordert wird.
 
 	double init[L];
 
